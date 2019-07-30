@@ -1,0 +1,45 @@
+<span th:replace="./inc/head.html" ></span>
+<div class="modal-content">
+	<div class="modal-body">
+		<form id="form" class="form-horizontal">
+			<input type="hidden"  th:value="${configId}" name="configId" />
+			<div class="form-group">
+				<span class="col-sm-3 control-label no-padding-right"><span class="red">*</span>版本号：</span>
+				<div class="col-sm-9">
+					<input type="text"   name="version"  th:value="${version}" class="col-xs-10 col-sm-5" />
+				</div>
+				<h3><span class="red"></span>已有版本：[[${oldversion}]]</h3>
+
+			</div>
+		</form>
+
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" id="item_submit"   onclick="doSave()" class="btn btn-primary">
+			保存</button>
+	</div>
+</div>
+<span th:replace="./inc/footer.html" ></span>
+<script type="text/javascript">
+
+
+function doSave(){
+	// todo,输入检查
+	var data = $('#form').serialize();
+	sajax({
+		type : "POST",
+		url : "/configHistory/doAddConfigHistory",
+		data : data,
+		dataType : 'json',
+		success : function(data) {
+		    if (data == "-1") {
+                layer.msg('备份失败，版本重复！');
+			} else {
+                layer.msg('备份成功');
+                closeWindowAndRefreshParentCurrentPage();
+            }
+		}
+	});
+}
+</script>
