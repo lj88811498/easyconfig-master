@@ -26,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/config")
@@ -294,8 +296,6 @@ public class ConfigController {
 
 		return info.toString();
 	}
-
-
 
 	private void checkDataPriviledge(Object dataId) {
 		Config po = commonDao.get(Config.class, (Long) dataId);
