@@ -1,0 +1,40 @@
+server:
+  port: 8083
+  servlet:
+      session.timeout: 1800s
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  thymeleaf:
+    cache: false
+  alliance:
+    dao:
+      dialect: mysql
+      datasource[0]:
+        group: easyconf
+        type: read/write
+        driverClass: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://${url:localhost:3306}/easyconf?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+        username: ${u:root}
+        password: ${p:123456}
+  mail:
+    host: smtp.qq.com
+#spring.mail.username=253187898@qq.com
+#spring.mail.password=hzsppenydxpnbhfc
+    username: 2099315008@qq.com
+    password: gvyujuxzikoubccg
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: false
+      starttls.required: false
+logging:
+  level:
+    dao: info
+  config: classpath:config/logback-spring.xml
+
+#EasyConf 配置中心
+easyconf:
+  logoname: WelCome TO EasyConfig

@@ -1,6 +1,5 @@
 package org.september.easyconf.util;
 
-import com.alibaba.druid.sql.visitor.functions.Char;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Matcher;
