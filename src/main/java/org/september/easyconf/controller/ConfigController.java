@@ -1,6 +1,6 @@
 package org.september.easyconf.controller;
 
-import com.alibaba.druid.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.september.core.exception.BusinessException;
 import org.september.core.exception.NotAuthorizedException;
 import org.september.easyconf.entity.*;
