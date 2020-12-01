@@ -16,6 +16,8 @@ public class EasyConfigApplication {
 	private static final Logger log = LoggerFactory.getLogger(EasyConfigApplication.class);
 
 	public static void main(String[] args) throws UnknownHostException {
+
+		//docker run -dit -p 8083:8083 10.58.239.195/bigdata/easyconfig:1.1 /bin/bash /run.sh root monkey123 10.58.237.11:3306
 		SpringApplication app = new SpringApplication(EasyConfigApplication.class);
 		DefaultProfileUtil.addDefaultProfile(app);
 		Environment env = app.run(args).getEnvironment();
